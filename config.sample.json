@@ -1,0 +1,5 @@
+{
+  "token":"Some Token:for your bot",
+  "like":"id of user to like",
+  "dislike":"id of uder to dislike"
+}
