@@ -1,5 +1,6 @@
 {
   "token":"Some Token:for your bot",
   "like":"id of user to like",
-  "dislike":"id of uder to dislike"
+  "dislike":"id of uder to dislike",
+  "support":"a word or phrase to support"
 }

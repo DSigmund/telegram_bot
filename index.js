@@ -19,8 +19,13 @@ bot.onText(/\/echo (.+)/, (msg, match) => {
   bot.sendMessage(chatId, resp);
 });
 
+
 bot.on('message', (msg) => {
   const chatId = msg.chat.id;
+
+  if(msg.text.toLowerCase().includes(config.support.toLowerCase())) {
+    bot.sendMessage(chatId, supportMessages[Math.floor(Math.random()*supportMessages.length)], {reply_to_message_id: msg.message_id});
+  }
 
   if (msg.from.id.toString() === config.like) {
     bot.sendMessage(chatId, likeMessages[Math.floor(Math.random()*likeMessages.length)], {reply_to_message_id: msg.message_id});
@@ -29,6 +34,7 @@ bot.on('message', (msg) => {
   if (msg.from.id.toString() === config.dislike) {
     bot.sendMessage(chatId, dislikeMessages[Math.floor(Math.random()*dislikeMessages.length)], {reply_to_message_id: msg.message_id});
   }
+  
 });
 
 let likeMessages = [
@@ -42,4 +48,9 @@ let dislikeMessages = [
   "Buh!",
   "Nein!",
   "Glaube ich nicht."
+]
+let supportMessages = [
+  "Ja, Corona ist echt doof",
+  "Bin ich froh, dass ich als Bot geimpft bin.",
+  "Wir können alle Etwas gegen die Pandemie tun"
 ]
